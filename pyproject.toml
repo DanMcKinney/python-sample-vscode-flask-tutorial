@@ -1,0 +1,17 @@
+[tool.poetry]
+name = "Demo Flask Project"
+version = "0.1.0"
+description = "An example project using Flask, numpy, and requests"
+authors = ["Microsoft"]
+license = "MIT"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.8"  # Specify the Python version compatibility
+flask = "^2.2.0"  # Latest major version at the time of writing
+numpy = "^1.24.0"  # Specify the desired major or minor version
+requests = "^2.31.0"  # Specify the desired major or minor version
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
