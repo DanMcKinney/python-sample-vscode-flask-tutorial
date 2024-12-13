@@ -12,8 +12,7 @@ jobs:
       - run: |
          CLOUDSMITH_API_KEY=$(curl -X POST -H "Content-Type: application/json" -d "{\"oidc_token\":\"$CIRCLE_OIDC_TOKEN_V2\", \"service_slug\":\"circleci-0yjm\"}" https://api.cloudsmith.io/openid/demo/ | jq -r '.token')
          echo "$CLOUDSMITH_API_KEY"
-         poetry config unset repositories.pypi
-         poetry config repositories.cloudsmith  https://dl.cloudsmith.io/basic/demo/gh-actions/python/simple/
+         poetry source add --priority=default cloudsmith https://dl.cloudsmith.io/basic/demo/circle-ci/python/simple/ 
          poetry config http-basic.cloudsmith circleci-0yjm $CLOUDSMITH_API_KEY 
          poetry install
 
@@ -27,12 +26,7 @@ jobs:
           # This assumes pytest is installed via the install-package step above
           command: pytest
 
-
-
-# Orchestrate jobs using workflows
-# See: https://circleci.com/docs/workflows/ & https://circleci.com/docs/configuration-reference/#workflows
 workflows:
-  sample: # This is the name of the workflow, feel free to change it to better match your workflow.
-    # Inside the workflow, you define the jobs you want to run.
+  build: 
     jobs:
       - build-and-test
