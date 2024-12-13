@@ -1,7 +1,6 @@
 
 version: 2.1
 
-
 jobs:
   build-and-test:
     docker:
@@ -9,9 +8,9 @@ jobs:
 
     steps:
       - checkout
+
       - run: |
          CLOUDSMITH_API_KEY=$(curl -X POST -H "Content-Type: application/json" -d "{\"oidc_token\":\"$CIRCLE_OIDC_TOKEN_V2\", \"service_slug\":\"circleci-0yjm\"}" https://api.cloudsmith.io/openid/demo/ | jq -r '.token')
-         echo "$CLOUDSMITH_API_KEY"
          poetry source add --priority=primary cloudsmith https://dl.cloudsmith.io/basic/demo/circle-ci/python/simple/ 
          poetry config http-basic.cloudsmith circleci-0yjm $CLOUDSMITH_API_KEY 
          poetry install
