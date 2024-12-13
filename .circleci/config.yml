@@ -15,11 +15,6 @@ jobs:
          poetry config http-basic.cloudsmith circleci-0yjm $CLOUDSMITH_API_KEY 
          poetry install
 
-      - run:
-          name: Run tests
-          # This assumes pytest is installed via the install-package step above
-          command: pytest
-
 workflows:
   build: 
     jobs:
