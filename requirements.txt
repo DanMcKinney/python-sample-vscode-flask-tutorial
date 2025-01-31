@@ -1,2 +1,5 @@
 pytest
 Flask
+torch
+pandas
+requests
