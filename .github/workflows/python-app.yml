@@ -34,7 +34,7 @@ jobs:
         
     - name: Install dependencies
       run: |
-        pip install -r requirements.txt --index-url https://$CLOUDSMITH_SERVICE:$CLOUDSMITH_API_KEY@dl.cloudsmith.io/basic/demo/visa-demo/python/simple/
+        pip install -r requirements.txt --index-url https://$CLOUDSMITH_SERVICE:$CLOUDSMITH_API_KEY@dl.cloudsmith.io/basic/demo/webinar/python/simple/
     
     - name: Test with pytest
       run: |
