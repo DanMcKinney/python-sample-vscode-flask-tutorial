@@ -1,3 +1,2 @@
 pytest
 flask
-requests==2.6.0
