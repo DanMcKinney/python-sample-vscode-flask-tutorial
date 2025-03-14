@@ -28,7 +28,7 @@ jobs:
         oidc-auth-only: 'true'
         
     - name: Set up Python
-      uses: actions/setup-python@v5.4.0
+      uses: actions/setup-python@v4
         
     - name: Install dependencies
       run: |
