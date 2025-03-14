@@ -15,7 +15,7 @@ env:
 
 jobs:
   build:
-    runs-on: ubuntu-2022.04
+    runs-on: ubuntu-latest
     environment: dev
 
     steps:
